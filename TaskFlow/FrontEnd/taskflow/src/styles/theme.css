@@ -1,0 +1,47 @@
+/* ===============================
+   FONTES
+================================ */
+:root {
+  --font-primary: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+}
+
+
+/* ===============================
+   TEMA CLARO (DEFAULT)
+================================ */
+:root {
+  --color-primary: #7c3aed;
+  --color-primary-dark: #6d28d9;
+
+  --color-background: #f7f7f7;
+  --color-surface: #ffffff;
+
+  --color-text: #111111;
+  --color-text-muted: #555555;
+
+  --color-border: #e5e5e5;
+  --color-input-border: #cccccc;
+
+  --color-card-overlay: rgba(255, 255, 255, 0.15);
+}
+
+/* ===============================
+   TEMA ESCURO
+   Ativado com: data-theme="dark"
+================================ */
+[data-theme="dark"] {
+  --color-primary: #8b5cf6;
+  --color-primary-dark: #7c3aed;
+
+  --color-background: #0f0f14;
+  --color-surface: #18181f;
+
+  --color-text: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+
+  --color-border: #2a2a35;
+  --color-input-border: #3f3f46;
+
+  --color-card-overlay: rgba(255, 255, 255, 0.08);
+}
