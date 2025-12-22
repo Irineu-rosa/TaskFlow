@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import "./styles/home.css";
 
+import Button_inscreva from "../components/button_roxo"
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -15,6 +16,11 @@ const fadeUp = {
 
 
 const Home = () => {
+    const handleSubscribe = () => {
+        console.log("Usuário clicou em inscrever-se");
+    };
+
+
     return (
         <>
             {/* HEADER */}
@@ -49,7 +55,10 @@ const Home = () => {
 
                     <form className="hero-form">
                         <input type="email" placeholder="E-mail" />
-                        <button type="button">Inscreva-se, é grátis</button>
+                        <Button_inscreva
+                            text="Inscreva-se, é grátis"
+                            onClick={handleSubscribe} />
+                        {/* <button type="button">Inscreva-se, é grátis</button> */}
                     </form>
                 </div>
             </motion.section>
@@ -184,7 +193,10 @@ const Home = () => {
 
                 <form className="cta-form">
                     <input type="email" placeholder="E-mail" />
-                    <button type="button">Inscreva-se, é grátis</button>
+                    <Button_inscreva
+                        text="Inscreva-se, é grátis"
+                        onClick={handleSubscribe} />
+                    {/* <button type="button">Inscreva-se, é grátis</button> */}
                 </form>
             </motion.section>
 
