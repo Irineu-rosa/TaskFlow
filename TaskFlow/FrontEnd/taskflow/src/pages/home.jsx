@@ -57,8 +57,7 @@ const Home = () => {
                         <input type="email" placeholder="E-mail" />
                         <Button_inscreva
                             text="Inscreva-se, é grátis"
-                            onClick={handleSubscribe} />
-                        {/* <button type="button">Inscreva-se, é grátis</button> */}
+                            onClick={handleSubscribe} />                        
                     </form>
                 </div>
             </motion.section>
@@ -128,10 +127,7 @@ const Home = () => {
                             adapta-se ao seu ritmo e cresce com suas necessidades.
                         </p>
                     </div>
-
-                    {/* <div className="image-placeholder">
-                        Imagem das caixas selecionadas ao lado do exemplo
-                    </div> */}
+                    
                     <div className="mockup">
                         <div className="mock-header">
                             <span></span>
