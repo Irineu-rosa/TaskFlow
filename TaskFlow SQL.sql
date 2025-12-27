@@ -1,3 +1,7 @@
+CREATE DATABASE TaskFlow;
+
+USE TaskFlow;
+
 CREATE TABLE IF NOT EXISTS `users` (
 	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
 	`name` varchar(255) NOT NULL,

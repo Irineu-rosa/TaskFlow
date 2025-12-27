@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import { motion } from "framer-motion";
 
 import "./styles/home.css";
@@ -30,7 +31,7 @@ const Home = () => {
                     <a href="#home">Home</a>
                     <a href="#intro">Introdução Rápida</a>
                     <a href="#benefits">Comece Já</a>
-                    <a href="#" className="login">Login →</a>
+                    <Link to="/login" className="login">Login →</Link>
                 </nav>
             </header>
 

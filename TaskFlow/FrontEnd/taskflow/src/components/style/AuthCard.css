@@ -30,3 +30,42 @@
   flex-direction: column;
   gap: 12px;
 }
+
+.link {
+  position: relative;
+  display: inline-block; /* 👈 importante */
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  padding-bottom: 6px;
+  font-size: 15px;
+  transition: color 0.25s ease;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%; /* agora respeita só o texto */
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+}
+

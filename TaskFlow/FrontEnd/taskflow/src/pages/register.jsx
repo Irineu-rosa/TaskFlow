@@ -1,7 +1,16 @@
-import AuthCard from "../components/AuthCard/AuthCard";
-import Input from "../components/Input/Input";
+import { useState } from "react";
+import AuthCard from "../components/AuthCard";
+import Input from "../components/input.jsx";
+import Select from "../components/select.jsx";
 
 const Register = () => {
+    const [type, setType] = useState("");
+
+    const options = [
+        { value: "Empresa", label: "Empresa" },
+        { value: "Pessoa-Física", label: "Pessoa Física" },
+    ];
+
     const handleRegister = (e) => {
         e.preventDefault();
         console.log("Cadastro enviado");
@@ -17,7 +26,12 @@ const Register = () => {
             <Input placeholder="Nome" />
             <Input type="email" placeholder="E-mail" />
             <Input type="password" placeholder="Senha" />
-            <Input placeholder="Empresa" />
+            <Select
+                placeholder="Selecione o tipo"
+                options={options}
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+            />            
         </AuthCard>
     );
 };
