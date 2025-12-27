@@ -7,7 +7,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 	`name` varchar(255) NOT NULL,
 	`email` varchar(255) NOT NULL UNIQUE,
 	`password` varchar(255) NOT NULL,
-	`role_id` int NOT NULL,
 	`created_at` datetime NOT NULL,
 	PRIMARY KEY (`id`)
 );
@@ -34,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `Tasks` (
 CREATE TABLE IF NOT EXISTS `status` (
 	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
 	`status` varchar(255) NOT NULL,
+	`quadro_id` int NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
@@ -46,10 +46,19 @@ CREATE TABLE IF NOT EXISTS `priority` (
 CREATE TABLE IF NOT EXISTS `quadro` (
 	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
 	`title` varchar(255) NOT NULL,
+	`create_at` datetime NOT NULL,
 	PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `users` ADD CONSTRAINT `users_fk4` FOREIGN KEY (`role_id`) REFERENCES `role`(`id`);
+CREATE TABLE IF NOT EXISTS `users_quadro` (
+	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
+	`user_id` int NOT NULL,
+	`role_id` int NOT NULL,
+	`quadro_id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+
 
 ALTER TABLE `Tasks` ADD CONSTRAINT `Tasks_fk3` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
 
@@ -58,5 +67,11 @@ ALTER TABLE `Tasks` ADD CONSTRAINT `Tasks_fk5` FOREIGN KEY (`priority_id`) REFER
 ALTER TABLE `Tasks` ADD CONSTRAINT `Tasks_fk6` FOREIGN KEY (`status_id`) REFERENCES `status`(`id`);
 
 ALTER TABLE `Tasks` ADD CONSTRAINT `Tasks_fk7` FOREIGN KEY (`quadro_id`) REFERENCES `quadro`(`id`);
+ALTER TABLE `status` ADD CONSTRAINT `status_fk2` FOREIGN KEY (`quadro_id`) REFERENCES `quadro`(`id`);
 
 
+ALTER TABLE `users_quadro` ADD CONSTRAINT `users_quadro_fk1` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
+
+ALTER TABLE `users_quadro` ADD CONSTRAINT `users_quadro_fk2` FOREIGN KEY (`role_id`) REFERENCES `role`(`id`);
+
+ALTER TABLE `users_quadro` ADD CONSTRAINT `users_quadro_fk3` FOREIGN KEY (`quadro_id`) REFERENCES `quadro`(`id`);
